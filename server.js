@@ -16,9 +16,21 @@ const ___dirname=path.resolve();
 
 dotenv.config();
 
+const allowedOrigins = ['http://localhost:3000', 'https://nikhil980.github.io/chats'];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({ origin: 'https://nikhil980.github.io/chats', 
+app.use(cors({ origin: corsOptions, 
  credentials: true // Allows cookies to be sent with requests 
  }));
 app.use("/api/users",UserRouter);
