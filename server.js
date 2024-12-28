@@ -26,13 +26,12 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
+  credentials: true,
 };
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({ corsOptions, 
- credentials: true // Allows cookies to be sent with requests 
- }));
+app.use(cors(corsOptions));
 app.use("/api/users",UserRouter);
 app.use("/api/auth",router);
 app.use("/api/messages",MessageRouter);
