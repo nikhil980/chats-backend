@@ -18,18 +18,18 @@ dotenv.config();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:3000', 
+app.use(cors({ origin: 'https://nikhil980.github.io/chats', 
  credentials: true // Allows cookies to be sent with requests 
  }));
 app.use("/api/users",UserRouter);
 app.use("/api/auth",router);
 app.use("/api/messages",MessageRouter);
 
-app.use(express.static(path.join (___dirname,"/frontend/dist")))
+// app.use(express.static(path.join (___dirname,"/frontend/dist")))
 
-app.get("*",(req,res)=>{
-   res.sendFile(path.join(__dirname,"frontend","dist","index.html"))
-})
+// app.get("*",(req,res)=>{
+//    res.sendFile(path.join(__dirname,"frontend","dist","index.html"))
+// })
 
  
 server.listen(PORT,()=>
