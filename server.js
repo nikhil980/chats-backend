@@ -30,7 +30,7 @@ const corsOptions = {
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({ origin: corsOptions, 
+app.use(cors({ corsOptions, 
  credentials: true // Allows cookies to be sent with requests 
  }));
 app.use("/api/users",UserRouter);
