@@ -16,7 +16,7 @@ const ___dirname=path.resolve();
 
 dotenv.config();
 
-const allowedOrigins = ['http://localhost:3000', 'https://nikhil980.github.io/chats'];
+const allowedOrigins = ['http://localhost:3000', 'https://nikhil980.github.io/chats','https://nikhil980.github.io'];
 
 const corsOptions = {
   origin: function (origin, callback) {
